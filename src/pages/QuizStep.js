@@ -7,7 +7,18 @@ import colorAssociations from '../contstants/associations';
 import steps from '../contstants/quizSteps';
 
 class QuizStep extends React.Component {
-  state = {};
+  state = {
+    showLetter: true,
+  };
+
+  componentDidMount() {
+    console.log('------------componentDidMount------------');
+    this.startTimer();
+  }
+
+  componentWillUnmount() {
+    // this.timer();
+  }
 
   static getDerivedStateFromProps(props, state) {
     if (props.match && props.match.params && props.match.params.step) {
@@ -18,6 +29,12 @@ class QuizStep extends React.Component {
     };
   }
 
+  startTimer = () => {
+    this.timer = setTimeout(() => {
+      this.setState({ showLetter: false });
+    }, 3000);
+  };
+
   getNextStep = () => {
     if (this.state.step && (this.state.step + 1) < Object.keys(steps).length) {
       return `/quiz/${this.state.step + 1}`;
@@ -25,16 +42,47 @@ class QuizStep extends React.Component {
     return '/';
   };
 
-  render() {
+  goToNext = () => {
+    this.setState({ showLetter: true }, () => {
+      this.props.history.replace(this.getNextStep());
+      this.startTimer();
+    });
+  };
+
+  getContent = () => {
     const step = steps[this.state.step];
     const association = colorAssociations.find(a => a.letter === step.letter);
+    console.log('step.altColor', step.altColor);
+    console.log('association.color', association.color);
+    if (this.state.showLetter) {
+      return (
+        <Typography noWrap variant="h1" style={{ color: association.color, textDecoration: 'none' }}>
+          {association.letter}
+        </Typography>
+      );
+    }
+    return (
+      <div style={{ flexDirection: 'column' }}>
+        <div
+          style={{ background: association.color, width: 300, height: 100, margin: 16 }}
+          onClick={this.goToNext}
+        />
+        <div
+          style={{ background: step.altColor, width: 300, height: 100, margin: 16 }}
+          onClick={this.goToNext}
+        />
+        <div
+          style={{ background: step.altColor, width: 300, height: 100, margin: 16 }}
+          onClick={this.goToNext}
+        />
+      </div>
+    );
+  };
+
+  render() {
     return (
       <ScreenWrapper>
-        <Link to={this.getNextStep()}>
-          <Typography noWrap variant="h1" style={{ color: association.color, textDecoration: 'none' }}>
-            {association.letter}
-          </Typography>
-        </Link>
+        {this.getContent()}
       </ScreenWrapper>
     );
   }
