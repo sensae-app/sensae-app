@@ -16,7 +16,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 class Home extends React.Component {
   
   render() {
-    const { classes } = this.props;
+    const { classes } = this.props; // Modified from component lib
     return (
       <ScreenHome>
         <div className={classes.root}>

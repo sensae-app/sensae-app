@@ -35,5 +35,11 @@ const styles = {
   //   display: 'flex',
   //   flex: 1,
   // },
+
+  // Set Global Style Width of 600px for Landscape / Portrait Mode
+  container: {
+    maxWidth: "600px",
+    width: "100%"
+  }
 };
 export default App;
