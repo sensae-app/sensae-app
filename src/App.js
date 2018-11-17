@@ -1,24 +1,38 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import logo from './images/logo.png';
+import { Route, Router, Switch } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
 import './App.css';
+import Home from './pages/Home';
+import Quiz from './pages/Quiz';
+
+const history = createHistory();
 
 class App extends React.Component {
   render() {
     return (
-      <Grid item xs>
-        <Typography noWrap variant={'h1'}>
-          Welcome
-        </Typography>
-        <img src={logo} alt="Sensae Logo" />
-        <Button variant="flat">
-          Continue
-        </Button>
-      </Grid>
+      <div style={styles.container}>
+        <Router history={history}>
+          <Switch>
+            <Route
+              exact
+              path="/"
+              component={Home}
+            />
+            <Route
+              exact
+              path="/quiz"
+              component={Quiz}
+            />
+          </Switch>
+        </Router>
+      </div>
     );
   }
 }
 
+const styles = {
+  container: {
+    display: 'flex',
+  },
+};
 export default App;
