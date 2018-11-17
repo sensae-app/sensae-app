@@ -1,7 +1,6 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { withRouter } from 'react-router';
-import { Link } from 'react-router-dom';
 import ScreenWrapper from '../components/ScreenWrapper';
 import colorAssociations from '../contstants/associations';
 import steps from '../contstants/quizSteps';
@@ -12,12 +11,11 @@ class QuizStep extends React.Component {
   };
 
   componentDidMount() {
-    console.log('------------componentDidMount------------');
     this.startTimer();
   }
 
   componentWillUnmount() {
-    // this.timer();
+    clearTimeout(this.timer);
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -32,7 +30,7 @@ class QuizStep extends React.Component {
   startTimer = () => {
     this.timer = setTimeout(() => {
       this.setState({ showLetter: false });
-    }, 3000);
+    }, 1000);
   };
 
   getNextStep = () => {
@@ -52,8 +50,6 @@ class QuizStep extends React.Component {
   getContent = () => {
     const step = steps[this.state.step];
     const association = colorAssociations.find(a => a.letter === step.letter);
-    console.log('step.altColor', step.altColor);
-    console.log('association.color', association.color);
     if (this.state.showLetter) {
       return (
         <Typography noWrap variant="h1" style={{ color: association.color, textDecoration: 'none' }}>
@@ -61,18 +57,17 @@ class QuizStep extends React.Component {
         </Typography>
       );
     }
+    const flip = Math.random() > 0.5;
+    const upperColor = flip ? association.color : step.altColor;
+    const lowerColor = flip ? step.altColor : association.color;
     return (
       <div style={{ flexDirection: 'column' }}>
         <div
-          style={{ background: association.color, width: 300, height: 100, margin: 16 }}
+          style={{ background: upperColor, width: 300, height: 100, margin: 16 }}
           onClick={this.goToNext}
         />
         <div
-          style={{ background: step.altColor, width: 300, height: 100, margin: 16 }}
-          onClick={this.goToNext}
-        />
-        <div
-          style={{ background: step.altColor, width: 300, height: 100, margin: 16 }}
+          style={{ background: lowerColor, width: 300, height: 100, margin: 16 }}
           onClick={this.goToNext}
         />
       </div>

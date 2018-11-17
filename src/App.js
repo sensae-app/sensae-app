@@ -11,7 +11,7 @@ const history = createHistory();
 class App extends React.Component {
   render() {
     return (
-      <div style={styles.container}>
+      <div data-src="App.js"  style={styles.container}>
         <Router history={history}>
           <Switch>
             <Route
@@ -37,9 +37,15 @@ class App extends React.Component {
 }
 
 const styles = {
+  // container: {
+  //   display: 'flex',
+  //   flex: 1,
+  // },
+
+  // Set Global Style Width of 600px for Landscape / Portrait Mode
   container: {
-    display: 'flex',
-    flex: 1,
-  },
+    maxWidth: "600px",
+    width: "100%"
+  }
 };
 export default App;
