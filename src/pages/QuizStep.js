@@ -1,6 +1,10 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
 import { withRouter } from 'react-router';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
+import BigLetter from '../components/BigLetter';
+import ColorChoices from '../components/ColorChoices';
 import ScreenWrapper from '../components/ScreenWrapper';
 import colorAssociations from '../contstants/associations';
 import steps from '../contstants/quizSteps';
@@ -8,6 +12,7 @@ import steps from '../contstants/quizSteps';
 class QuizStep extends React.Component {
   state = {
     showLetter: true,
+    numberCorrect: 0,
   };
 
   componentDidMount() {
@@ -18,7 +23,7 @@ class QuizStep extends React.Component {
     clearTimeout(this.timer);
   }
 
-  static getDerivedStateFromProps(props, state) {
+  static getDerivedStateFromProps(props) {
     if (props.match && props.match.params && props.match.params.step) {
       return { step: parseInt(props.match.params.step, 10) };
     }
@@ -34,42 +39,53 @@ class QuizStep extends React.Component {
   };
 
   getNextStep = () => {
-    if (this.state.step && (this.state.step + 1) < Object.keys(steps).length) {
-      return `/quiz/${this.state.step + 1}`;
-    }
-    return '/';
+    return `/quiz/${this.state.step + 1}`;
   };
 
-  goToNext = () => {
-    this.setState({ showLetter: true }, () => {
+  handleSubmit = (isCorrect) => {
+    this.setState((state) => {
+      return {
+        showLetter: true,
+        numberCorrect: isCorrect ? state.numberCorrect + 1 : state.numberCorrect,
+      };
+    }, () => {
       this.props.history.replace(this.getNextStep());
       this.startTimer();
     });
   };
 
-  getContent = () => {
+  renderContent = () => {
     const step = steps[this.state.step];
-    const association = colorAssociations.find(a => a.letter === step.letter);
-    if (this.state.showLetter) {
+    let association = null;
+    if (step) {
+      association = colorAssociations.find(a => a.letter === step.letter);
+    }
+
+    if (association) {
+      if (this.state.showLetter) {
+        return (
+          <BigLetter association={association} />
+        );
+      }
+
       return (
-        <Typography noWrap variant="h1" style={{ color: association.color, textDecoration: 'none' }}>
-          {association.letter}
-        </Typography>
+        <ColorChoices
+          onSelect={this.handleSubmit}
+          association={association}
+        />
       );
     }
-    const flip = Math.random() > 0.5;
-    const upperColor = flip ? association.color : step.altColor;
-    const lowerColor = flip ? step.altColor : association.color;
+
     return (
-      <div style={{ flexDirection: 'column' }}>
-        <div
-          style={{ background: upperColor, width: 300, height: 100, margin: 16 }}
-          onClick={this.goToNext}
-        />
-        <div
-          style={{ background: lowerColor, width: 300, height: 100, margin: 16 }}
-          onClick={this.goToNext}
-        />
+      <div>
+        <Typography>You got {this.state.numberCorrect} Correct!</Typography>
+        <Button
+          variant="text"
+          component={Link}
+          to="/quiz"
+        >
+          Try Again
+        </Button>
       </div>
     );
   };
@@ -77,7 +93,8 @@ class QuizStep extends React.Component {
   render() {
     return (
       <ScreenWrapper>
-        {this.getContent()}
+        {this.renderContent()}
+        Correct: {this.state.numberCorrect}
       </ScreenWrapper>
     );
   }

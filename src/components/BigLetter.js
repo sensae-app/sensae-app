@@ -1,25 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
 
 class BigLetter extends React.PureComponent {
-  static propTypes = {};
+  static propTypes = {
+    association: PropTypes.shape({
+      color: PropTypes.string.isRequired,
+      letter: PropTypes.string.isRequired,
+    }),
+  };
 
   render() {
     return (
-      <div style={styles.container}>
-        {this.props.children}
-      </div>
+      <Typography noWrap variant="h1" style={{ color: this.props.association.color }}>
+        {this.props.association.letter}
+      </Typography>
     );
   }
 }
-
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flex: 1,
-  },
-};
 
 export default BigLetter;
