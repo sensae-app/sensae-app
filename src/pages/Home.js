@@ -28,22 +28,48 @@ class Home extends React.Component {
               <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
                 <MenuIcon />
               </IconButton>
+              <img src={logo} className="img-header"/>
               <Typography variant="h6" color="inherit" className={classes.grow}>
                 News
               </Typography>
-              <h1> hello world</h1>
               <Button color="inherit">Login</Button>
             </Toolbar>
           </AppBar>
         </div>
         {/* END HEADER */}
-        <Typography noWrap variant={'h1'}>
-          Welcome
-        </Typography>
-        <img src={logo} alt="Sensae Logo" />
-        <Button variant="text" component={Link} to="/quiz">
-          Continue
-        </Button>
+        {/* <Typography noWrap variant={'h1'}>
+          Welcome to Grasshopper
+        </Typography> */}
+        <div className="vt-body">
+          <div className="vt-header">
+            <h2> Welcome Grasshopper</h2>
+            <p>Enrich your experience of the world through synesthesia training.</p>
+          </div>
+          <p className="vt-training">Training Games</p>
+          <div className="vt-card">
+            <img src="https://i.imgur.com/fJ7TiW1.png"/>
+            <h3>Stroop Test</h3>
+            <p>How synesthetic are you? This quiz determines your baseline synesthesia skills. </p>
+          </div>
+          <div className="vt-card">
+            <img src="https://i.imgur.com/BXotvRf.png"/>
+            <h3>Accuity Training</h3>
+            <p>Determine whether or not you are synesthetic with this baseline quiz</p>
+          </div>
+          <div className="vt-card">
+            <img src="https://i.imgur.com/YRJ9smu.png"/>
+            <h3>New N-Back</h3>
+            <p>How synesthetic are you? This quiz determines your baseline synesthesia skills. </p>
+          </div>
+          <div className="vt-card">
+            <img src="https://i.imgur.com/YRJ9smu.png"/>
+            <h3>Association</h3>
+            <p>How synesthetic are you? This quiz determines your baseline synesthesia skills. </p>
+          </div>
+          <Button variant="text" component={Link} to="/quiz">
+            Continue
+          </Button>
+        </div>
       </ScreenHome>
     );
   }
