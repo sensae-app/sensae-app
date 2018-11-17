@@ -1,9 +1,10 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 import ScreenWrapper from '../components/ScreenWrapper';
 
-class Home extends React.Component {
+class Quiz extends React.Component {
   render() {
     return (
       <ScreenWrapper>
@@ -17,7 +18,7 @@ class Home extends React.Component {
             There will be a quiz at the end. ;)
           </Typography>
         </div>
-        <Button variant="text">
+        <Button variant="text" component={Link} to="/quiz/1">
           Continue
         </Button>
       </ScreenWrapper>
@@ -25,4 +26,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default Quiz;

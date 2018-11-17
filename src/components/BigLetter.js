@@ -1,13 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-class ScreenWrapper extends React.Component {
+class BigLetter extends React.PureComponent {
   static propTypes = {};
-
-  state = {};
-
-  componentDidMount() {
-  }
 
   render() {
     return (
@@ -25,8 +19,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
-    background: 'rgba(196, 188, 150)'
   },
 };
 
-export default ScreenWrapper;
+export default BigLetter;

@@ -4,6 +4,7 @@ import createHistory from 'history/createBrowserHistory';
 import './App.css';
 import Home from './pages/Home';
 import Quiz from './pages/Quiz';
+import QuizStep from './pages/QuizStep';
 
 const history = createHistory();
 
@@ -22,6 +23,11 @@ class App extends React.Component {
               exact
               path="/quiz"
               component={Quiz}
+            />
+            <Route
+              exact
+              path="/quiz/:step"
+              component={QuizStep}
             />
           </Switch>
         </Router>
