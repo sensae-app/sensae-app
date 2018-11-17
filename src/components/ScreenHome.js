@@ -11,7 +11,7 @@ class ScreenHome extends React.Component {
 
   render() {
     return (
-      <div style={styles.container}>
+      <div data-src="ScreenHome" style={styles.container}>
         {this.props.children}
       </div>
     );
@@ -20,11 +20,11 @@ class ScreenHome extends React.Component {
 
 const styles = {
   container: {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
+    // display: 'flex',
+    // flexDirection: 'column',
+    // justifyContent: 'center',
     // alignItems: 'center',
-    flex: 1,
+    // flex: 1,
   },
 };
 

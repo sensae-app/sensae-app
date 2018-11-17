@@ -45,9 +45,9 @@ class Home extends React.Component {
 }
 
 const styles = {
-  container: {
-    flexDirection: 'column',
-  },
+  // container: {
+  //   flexDirection: 'column',
+  // },
   root: {
     flexGrow: 1,
   },

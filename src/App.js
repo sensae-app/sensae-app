@@ -10,7 +10,7 @@ const history = createHistory();
 class App extends React.Component {
   render() {
     return (
-      <div style={styles.container}>
+      <div data-src="App.js"  style={styles.container}>
         <Router history={history}>
           <Switch>
             <Route
@@ -31,9 +31,9 @@ class App extends React.Component {
 }
 
 const styles = {
-  container: {
-    display: 'flex',
-    flex: 1,
-  },
+  // container: {
+  //   display: 'flex',
+  //   flex: 1,
+  // },
 };
 export default App;
