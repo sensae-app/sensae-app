@@ -13,6 +13,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
+// Import custom home css file
+import './Home.scss';
+
 class Home extends React.Component {
   
   render() {
@@ -28,10 +31,12 @@ class Home extends React.Component {
               <Typography variant="h6" color="inherit" className={classes.grow}>
                 News
               </Typography>
+              <h1> hello world</h1>
               <Button color="inherit">Login</Button>
             </Toolbar>
           </AppBar>
         </div>
+        {/* END HEADER */}
         <Typography noWrap variant={'h1'}>
           Welcome
         </Typography>
