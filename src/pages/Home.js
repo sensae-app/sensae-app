@@ -8,17 +8,23 @@ import logo from '../images/logo.png';
 class Home extends React.Component {
   render() {
     return (
-      <Grid item xs>
+      <div style={styles.container}>
         <Typography noWrap variant={'h1'}>
           Welcome
         </Typography>
         <img src={logo} alt="Sensae Logo" />
-        <Button variant="flat" component={<Link to="/quiz" />}>
+        <Button variant="text" component={Link} to="/quiz">
           Continue
         </Button>
-      </Grid>
+      </div>
     );
   }
 }
+
+const styles = {
+  container: {
+    flexDirection: 'column',
+  },
+};
 
 export default Home;

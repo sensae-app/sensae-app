@@ -17,7 +17,7 @@ class Home extends React.Component {
             There will be a quiz at the end. ;)
           </Typography>
         </div>
-        <Button variant="flat">
+        <Button variant="text">
           Continue
         </Button>
       </ScreenWrapper>

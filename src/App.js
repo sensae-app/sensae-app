@@ -33,6 +33,7 @@ class App extends React.Component {
 const styles = {
   container: {
     display: 'flex',
+    flex: 1,
   },
 };
 export default App;
