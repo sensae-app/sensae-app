@@ -1,3 +1,45 @@
-h1 {
-    color: red;
+// Logo Colors
+$teal: #62F4F0;
+$blue: #6BC1F0;
+$blue-light: #D7F3FF;
+$magenta: #F96B6A;
+// Nonlogo Colors
+$blue-dark: #C5E6F5; /* Not part of logo colors */
+$grey-light: #FAFAFA; /* For Cards */
+// Padding
+$pad-md: 20px;
+
+.img-header {
+    width: 50px;
+    margin-right: 15px;
+}
+// Override sty
+header {
+    background-color: white !important;
+    color: black !important;
+}
+.vt-body {
+    font-family: Arial;
+    padding: $pad-md;
+}
+.vt-header {
+    text-align: center;
+    padding: $pad-md;
+}
+.vt-training {
+    color: $magenta;
+}
+.vt-card {
+    background-color: $grey-light;
+    width: 100%;
+    height: auto;
+    padding: $pad-md;
+    margin-bottom: $pad-md;
+    text-align: center;
+    img {
+        width: 60%;
+    }
+    h3 {
+        color: $blue;
+    }
 }
