@@ -11,8 +11,16 @@ class ScreenWrapper extends React.Component {
 
   render() {
     return (
-      <div style={styles.container}>
-        {this.props.children}
+      <div className="vt-screenwrapper1">
+        <div class="vt-quizheader">
+          <h4> Acuity </h4>
+          <p>Select the color that matches the color you saw</p>
+          <div class="cross"></div>
+        </div>
+        {/* Below is Ian's Code */}
+        <div className="vt-screenwrapper2" style={styles.container}>
+          {this.props.children}
+        </div>
       </div>
     );
   }
@@ -25,7 +33,9 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
-    background: 'rgba(196, 188, 150)'
+    background: 'rgba(196, 188, 150)',
+    // Vt-Extra Styles
+    height: "100vh"
   },
 };
 

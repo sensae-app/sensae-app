@@ -13,7 +13,7 @@ class SingleResult extends React.PureComponent {
 
   render() {
     return (
-      <div
+      <div className="vt-singleresult"
         style={{ ...styles.container, background: this.props.color }}
         onClick={this.onClick}
       >

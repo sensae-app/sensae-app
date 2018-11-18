@@ -9,6 +9,8 @@ import ScreenWrapper from '../components/ScreenWrapper';
 import SingleResult from '../components/SingleResult';
 import colorAssociations from '../contstants/associations';
 import steps from '../contstants/quizSteps';
+import './Home.scss'; // Global Styles
+import './QuizStep.scss';
 
 const views = {
   LETTER: 'LETTER',
@@ -46,7 +48,7 @@ class QuizStep extends React.Component {
       // After some time, change the view the choice prompt
       this.timer = setTimeout(() => {
         this.setState({ view: views.CHOICE });
-      }, 1000);
+      }, 9000); // Delay Timer so I can style
     });
   };
 
@@ -110,9 +112,9 @@ class QuizStep extends React.Component {
     }
 
     return (
-      <div>
+      <div className="vt-end">
         <Typography>You got {this.state.numberCorrect} Correct!</Typography>
-        <Button
+        <Button data-src="vt-end"
           variant="text"
           component={Link}
           to="/quiz"
