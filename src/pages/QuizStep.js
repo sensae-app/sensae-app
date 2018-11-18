@@ -74,6 +74,10 @@ class QuizStep extends React.Component {
     });
   };
 
+  handleClose = () => {
+    this.props.history.replace('/');
+  };
+
   repeat = () => {
     this.showLetter();
   };
@@ -161,7 +165,7 @@ class QuizStep extends React.Component {
             <Typography variant="h6" color="inherit" className={classes.grow}>
               Sensae
             </Typography>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" onClick={this.handleClose}>
               <CloseIcon />
             </IconButton>
           </Toolbar>
