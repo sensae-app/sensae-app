@@ -85,7 +85,7 @@ class QuizStep extends React.Component {
   };
 
   proceed = () => {
-    if (this.state.step < 11) {
+    if (this.state.step < 3) {
       this.showLetter();
     } else {
       this.done();
@@ -144,7 +144,7 @@ class QuizStep extends React.Component {
           }}>
             <div className={this.props.classes.doneContainer}>
               <Check style={styles.icon} />
-              <h3>Level 1 Complete</h3>
+              <h3>Level {accuitySettings.selectedRound + 1} Complete</h3>
               <Button
                 variant="contained"
                 component={Link}
