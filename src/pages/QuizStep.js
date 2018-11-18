@@ -55,7 +55,7 @@ class QuizStep extends React.Component {
       // After some time, change the view the choice prompt
       this.timer = setTimeout(() => {
         this.setState({ view: views.CHOICE });
-      }, 1000);
+      }, 2000);
     });
   };
 
@@ -127,7 +127,6 @@ class QuizStep extends React.Component {
         <div className={this.props.classes.doneContainer}>
           <Check style={styles.icon}/>
           <h3>Level 1 Complete</h3>
-          <p>You had to retry {this.state.numberIncorrect} times!</p>
           <Button
             variant="contained"
             component={Link}
