@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 class ScreenHome extends React.Component {
   static propTypes = {};
@@ -19,13 +18,7 @@ class ScreenHome extends React.Component {
 }
 
 const styles = {
-  container: {
-    // display: 'flex',
-    // flexDirection: 'column',
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // flex: 1,
-  },
+  container: {},
 };
 
 export default ScreenHome;

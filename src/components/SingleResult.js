@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Check from '@material-ui/icons/Check';
 import Close from '@material-ui/icons/Close';
-import Button from '@material-ui/core/Button';
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 class SingleResult extends React.PureComponent {
   static propTypes = {

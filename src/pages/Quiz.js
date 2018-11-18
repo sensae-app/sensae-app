@@ -2,6 +2,7 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
+import LevelSelectBubble from '../components/LevelSelectBubble';
 import ScreenHome from '../components/ScreenHome';
 import ArrowBack from '@material-ui/icons/ArrowBack';
 import AppBar from '@material-ui/core/es/AppBar/AppBar';
@@ -27,7 +28,7 @@ class Quiz extends React.Component {
                 <ArrowBack />
               </IconButton>
             </Link>
-            <img src={logo} className="img-header" />
+            <img src={logo} className="img-header" alt="Sensae Logo" />
             <Typography variant="h6" color="inherit" className={classes.grow}>
               Sensae
             </Typography>
@@ -47,43 +48,10 @@ class Quiz extends React.Component {
           <div style={{ margin: 24 }}>
             <p className="list-header">Your journey begins...</p>
           </div>
-          <Link to="/instructions">
-            <div className="timeline timeline-on" >
-              <div className="line"></div>
-              <div className="circle">
-                <div className="level">1</div>
-                <div className="label">level</div>
-              </div>
-            </div>
-          </Link>
-          <div className="timeline">
-            <div className="line"></div>
-            <div className="circle">
-              <div className="level">2</div>
-              <div className="label">level</div>
-            </div>
-          </div>
-          <div className="timeline">
-            <div className="line"></div>
-            <div className="circle">
-              <div className="level">3</div>
-              <div className="label">level</div>
-            </div>
-          </div>
-          <div className="timeline">
-            <div className="line"></div>
-            <div className="circle">
-              <div className="level">4</div>
-              <div className="label">level</div>
-            </div>
-          </div>
-          <div className="timeline">
-            <div className="line"></div>
-            <div className="circle">
-              <div className="level">5</div>
-              <div className="label">level</div>
-            </div>
-          </div>
+          <LevelSelectBubble level={1} />
+          <LevelSelectBubble level={2} />
+          <LevelSelectBubble level={3} />
+          <LevelSelectBubble level={4} hideLine />
         </div>
       </ScreenHome>
     );

@@ -22,7 +22,7 @@ class Quiz extends React.Component {
                 <ArrowBack />
               </IconButton>
             </Link>
-            <img src={logo} className="img-header" />
+            <img src={logo} className="img-header" alt="Sensae Logo" />
             <Typography variant="h6" color="inherit" className={classes.grow}>
               Sensae
             </Typography>

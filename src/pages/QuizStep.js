@@ -8,7 +8,7 @@ import ColorChoices from '../components/ColorChoices';
 import CloseIcon from '@material-ui/icons/Close';
 import SingleResult from '../components/SingleResult';
 import colorAssociations from '../contstants/associations';
-import steps from '../contstants/quizSteps';
+import { accuitySettings } from '../contstants/quizSettings';
 import './Home.scss'; // Global Styles
 import './QuizStep.scss';
 import ScreenHome from '../components/ScreenHome';
@@ -34,6 +34,7 @@ class QuizStep extends React.Component {
 
   componentDidMount() {
     this.showLetter();
+    this.round = accuitySettings.rounds[accuitySettings.selectedRound];
   }
 
   componentWillUnmount() {
@@ -55,7 +56,7 @@ class QuizStep extends React.Component {
       // After some time, change the view the choice prompt
       this.timer = setTimeout(() => {
         this.setState({ view: views.CHOICE });
-      }, 2000);
+      }, this.round.speed);
     });
   };
 
@@ -89,7 +90,7 @@ class QuizStep extends React.Component {
 
   renderContent = () => {
 
-    const step = steps[this.state.step];
+    const step = accuitySettings.steps[this.state.step];
     let association = null;
     if (step) {
       association = colorAssociations.find(a => a.letter === step.letter);
@@ -109,7 +110,7 @@ class QuizStep extends React.Component {
         case views.CHOICE: {
           return (
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 24 }}>
-              <p style={{textAlign: 'center'}}>Select the color that matches the letter you just saw.</p>
+              <p style={{ textAlign: 'center' }}>Select the color that matches the letter you just saw.</p>
               <ColorChoices
                 onSelect={this.handleSubmit}
                 association={association}

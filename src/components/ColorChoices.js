@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { accuitySettings } from '../contstants/quizSettings';
 import { adjustHSL } from '../helpers/color.helper';
 import ColorChoice from './ColorChoice';
 
@@ -17,7 +18,10 @@ class ColorChoices extends React.PureComponent {
   };
 
   render() {
-    const wrongColor = adjustHSL(this.props.association, 20).color;
+    this.round = accuitySettings.rounds[accuitySettings.selectedRound];
+    const colorDiff = Math.random() > 0.5 ? this.round.colorDiff : -1 * this.round.colorDiff;
+    console.log('colorDiff', colorDiff);
+    const wrongColor = adjustHSL(this.props.association, colorDiff).color;
     const isUpperCorrect = Math.random() > 0.5;
     const upperColor = isUpperCorrect ? this.props.association.color : wrongColor;
     const lowerColor = isUpperCorrect ? wrongColor : this.props.association.color;
@@ -37,14 +41,6 @@ class ColorChoices extends React.PureComponent {
     );
   }
 }
-
-const styles = {
-  container: {
-    width: 300,
-    height: 100,
-    margin: 16,
-  },
-};
 
 export default ColorChoices;
 
