@@ -9,8 +9,8 @@ const steps = {
   '8': { letter: 'Q' },
   '9': { letter: 'R' },
   '10': { letter: 'U' },
-  '11': { letter: 'W' },
-  '12': { letter: 'X' },
+  '11': { letter: 'X' },
+  // '12': { letter: 'W' },
 };
 
 export default steps;
