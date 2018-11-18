@@ -11,6 +11,11 @@ import logo from '../images/logo.png';
 import withStyles from '@material-ui/core/es/styles/withStyles';
 
 class Quiz extends React.Component {
+
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   render() {
     const { classes } = this.props; // Modified from component lib
     return (
