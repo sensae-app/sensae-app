@@ -4,9 +4,11 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import ScreenHome from '../components/ScreenHome';
 import logo from '../images/logo.png';
+import listImage1 from '../images/list-image-1.png';
+import listImage2 from '../images/list-image-2.png';
+import listImage3 from '../images/list-image-3.png';
 
 // Screen Appbar Imports
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -46,24 +48,24 @@ class Home extends React.Component {
           {/*LIST*/}
           <p className="list-header">Training Games</p>
           <div className="vt-card">
-            <img src="https://i.imgur.com/fJ7TiW1.png" />
+            <img src={listImage1} />
             <h3>Stroop Test</h3>
             <p>How synesthetic are you? This quiz determines your baseline synesthesia skills. </p>
           </div>
           <Link to="/quiz">
             <div className="vt-card">
-              <img src="https://i.imgur.com/BXotvRf.png" />
+              <img src={listImage2} />
               <h3>Accuity Training</h3>
               <p>Determine whether or not you are synesthetic with this baseline quiz</p>
             </div>
           </Link>
           <div className="vt-card">
-            <img src="https://i.imgur.com/YRJ9smu.png" />
+            <img src={listImage3} />
             <h3>New N-Back</h3>
             <p>How synesthetic are you? This quiz determines your baseline synesthesia skills. </p>
           </div>
           <div className="vt-card">
-            <img src="https://i.imgur.com/YRJ9smu.png" />
+            <img src={listImage3} />
             <h3>Association</h3>
             <p>How synesthetic are you? This quiz determines your baseline synesthesia skills. </p>
           </div>

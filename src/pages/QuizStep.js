@@ -95,15 +95,22 @@ class QuizStep extends React.Component {
       switch (this.state.view) {
         case views.LETTER: {
           return (
-            <BigLetter association={association} />
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 24 }}>
+              <p style={{ marginBottom: 100, textAlign: 'center' }}>Remember this color/letter association.</p>
+              <BigLetter association={association} />
+            </div>
+
           );
         }
         case views.CHOICE: {
           return (
-            <ColorChoices
-              onSelect={this.handleSubmit}
-              association={association}
-            />
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 24 }}>
+              <p style={{textAlign: 'center'}}>Select the color that matches the letter you just saw.</p>
+              <ColorChoices
+                onSelect={this.handleSubmit}
+                association={association}
+              />
+            </div>
           );
         }
         case views.RESULT: {
@@ -120,12 +127,13 @@ class QuizStep extends React.Component {
     }
 
     return (
-      <div style={{ width: 600, display: 'flex',
+      <div style={{
+        width: 600, display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center' ,
+        alignItems: 'center',
       }}>
         <div className={this.props.classes.doneContainer}>
-          <Check style={styles.icon}/>
+          <Check style={styles.icon} />
           <h3>Level 1 Complete</h3>
           <Button
             variant="contained"
@@ -186,7 +194,6 @@ const styles = {
     height: '100vh',
   },
   doneContainer: {
-    // backgroundColor: 'rgba(0,0,0,.03)',
     borderRadius: 4,
     margin: 0,
     display: 'flex',
@@ -198,7 +205,7 @@ const styles = {
   icon: {
     color: '#6BC1F0',
     fontSize: 240,
-  }
+  },
 };
 
 export default withStyles(styles)(withRouter(QuizStep));

@@ -42,7 +42,7 @@ class SingleResult extends React.PureComponent {
         <h3>
           {this.props.isCorrect ? 'Correct!' : 'Incorrect.'}
         </h3>
-        <div>{this.state.countdown}</div>
+        <div style={styles.number}>{this.state.countdown}</div>
       </div>
     );
   }
@@ -62,6 +62,21 @@ const styles = {
   icon: {
     color: '#6BC1F0',
     fontSize: 240,
+  },
+  number: {
+    background: '#C5E6F5',
+    height: 30,
+    width: 30,
+    borderRadius: '50%',
+    color: '#fff',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 20,
+    marginRight: 24,
+    flexShrink: 0,
+    fontFamily: 'Arial',
+    margin: 'auto',
   },
 };
 

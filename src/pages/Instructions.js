@@ -29,7 +29,7 @@ class Quiz extends React.Component {
             <Button color="inherit">Login</Button>
           </Toolbar>
         </AppBar>
-        <div className="vt-body" style={{ width: 400 }}>
+        <div className="vt-body">
           <h2>How to Play</h2>
           <div style={styles.step}>
             <div style={styles.number}>1</div>
