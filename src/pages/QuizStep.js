@@ -6,17 +6,25 @@ import { Link } from 'react-router-dom';
 import BigLetter from '../components/BigLetter';
 import ColorChoices from '../components/ColorChoices';
 import ScreenWrapper from '../components/ScreenWrapper';
+import SingleResult from '../components/SingleResult';
 import colorAssociations from '../contstants/associations';
 import steps from '../contstants/quizSteps';
 
+const views = {
+  LETTER: 'LETTER',
+  CHOICE: 'CHOICE',
+  RESULT: 'RESULT',
+};
+
 class QuizStep extends React.Component {
   state = {
-    showLetter: true,
+    view: views.LETTER,
     numberCorrect: 0,
+    lastResult: null,
   };
 
   componentDidMount() {
-    this.startTimer();
+    this.showLetter();
   }
 
   componentWillUnmount() {
@@ -32,10 +40,14 @@ class QuizStep extends React.Component {
     };
   }
 
-  startTimer = () => {
-    this.timer = setTimeout(() => {
-      this.setState({ showLetter: false });
-    }, 1000);
+  showLetter = () => {
+    // Set the view to show the letter
+    this.setState({ view: views.LETTER }, () => {
+      // After some time, change the view the choice prompt
+      this.timer = setTimeout(() => {
+        this.setState({ view: views.CHOICE });
+      }, 1000);
+    });
   };
 
   getNextStep = () => {
@@ -45,16 +57,24 @@ class QuizStep extends React.Component {
   handleSubmit = (isCorrect) => {
     this.setState((state) => {
       return {
-        showLetter: true,
+        view: views.RESULT,
+        lastResult: isCorrect,
         numberCorrect: isCorrect ? state.numberCorrect + 1 : state.numberCorrect,
       };
-    }, () => {
-      this.props.history.replace(this.getNextStep());
-      this.startTimer();
     });
   };
 
+  repeat = () => {
+    this.showLetter();
+  };
+
+  proceed = () => {
+    this.showLetter();
+    this.props.history.replace(this.getNextStep());
+  };
+
   renderContent = () => {
+
     const step = steps[this.state.step];
     let association = null;
     if (step) {
@@ -62,18 +82,31 @@ class QuizStep extends React.Component {
     }
 
     if (association) {
-      if (this.state.showLetter) {
-        return (
-          <BigLetter association={association} />
-        );
+      switch (this.state.view) {
+        case views.LETTER: {
+          return (
+            <BigLetter association={association} />
+          );
+        }
+        case views.CHOICE: {
+          return (
+            <ColorChoices
+              onSelect={this.handleSubmit}
+              association={association}
+            />
+          );
+        }
+        case views.RESULT: {
+          return (
+            <SingleResult
+              isCorrect={this.state.lastResult}
+              onClick={this.state.lastResult ? this.proceed : this.repeat}
+            />
+          );
+        }
+        default:
+          return null;
       }
-
-      return (
-        <ColorChoices
-          onSelect={this.handleSubmit}
-          association={association}
-        />
-      );
     }
 
     return (
