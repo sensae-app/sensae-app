@@ -33,22 +33,24 @@ class Quiz extends React.Component {
           <div className="vt-card-header">
             <h2>Acuity</h2>
             <p>
-              Improve your ability to associate exact hues to specific symbols.
+              Acuity sharpens your perception of color and expands your sensory vocabulary.
             </p>
-            <Button variant="contained" style={{width: '300px', backgroundColor: "#F96B6A", color:"#fff"}} component={Link} to="/quiz/1">
-              Continue
-            </Button>
+            {/*<Button variant="contained" style={{width: '300px', backgroundColor: "#F96B6A", color:"#fff"}} >*/}
+            {/*Continue*/}
+            {/*</Button>*/}
           </div>
-          <div style={{margin: 16}}>
-            <p className="list-header">Your Journey</p>
+          <div style={{ margin: 24 }}>
+            <p className="list-header">Your journey begins...</p>
           </div>
-          <div className="timeline timeline-on">
-            <div className="line"></div>
-            <div className="circle">
-              <div className="level">1</div>
-              <div className="label">level</div>
+          <Link to="/instructions">
+            <div className="timeline timeline-on" >
+              <div className="line"></div>
+              <div className="circle">
+                <div className="level">1</div>
+                <div className="label">level</div>
+              </div>
             </div>
-          </div>
+          </Link>
           <div className="timeline">
             <div className="line"></div>
             <div className="circle">
