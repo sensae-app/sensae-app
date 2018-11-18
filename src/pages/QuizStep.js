@@ -74,6 +74,10 @@ class QuizStep extends React.Component {
     });
   };
 
+  handleClose = () => {
+    this.props.history.replace('/');
+  };
+
   repeat = () => {
     this.showLetter();
   };
@@ -120,12 +124,13 @@ class QuizStep extends React.Component {
     }
 
     return (
-      <div style={{ width: 600, display: 'flex',
+      <div style={{
+        width: 600, display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center' ,
+        alignItems: 'center',
       }}>
         <div className={this.props.classes.doneContainer}>
-          <Check style={styles.icon}/>
+          <Check style={styles.icon} />
           <h3>Level 1 Complete</h3>
           <Button
             variant="contained"
@@ -153,7 +158,7 @@ class QuizStep extends React.Component {
             <Typography variant="h6" color="inherit" className={classes.grow}>
               Sensae
             </Typography>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" onClick={this.handleClose}>
               <CloseIcon />
             </IconButton>
           </Toolbar>
@@ -198,7 +203,7 @@ const styles = {
   icon: {
     color: '#6BC1F0',
     fontSize: 240,
-  }
+  },
 };
 
 export default withStyles(styles)(withRouter(QuizStep));
