@@ -20,6 +20,7 @@ class QuizStep extends React.Component {
   state = {
     view: views.LETTER,
     numberCorrect: 0,
+    numberIncorrect: 0,
     lastResult: null,
   };
 
@@ -60,6 +61,7 @@ class QuizStep extends React.Component {
         view: views.RESULT,
         lastResult: isCorrect,
         numberCorrect: isCorrect ? state.numberCorrect + 1 : state.numberCorrect,
+        numberIncorrect: isCorrect ? state.numberIncorrect : state.numberIncorrect + 1,
       };
     });
   };
@@ -111,7 +113,7 @@ class QuizStep extends React.Component {
 
     return (
       <div>
-        <Typography>You got {this.state.numberCorrect} Correct!</Typography>
+        <Typography>You had to retry {this.state.numberIncorrect} times!</Typography>
         <Button
           variant="text"
           component={Link}
@@ -127,7 +129,6 @@ class QuizStep extends React.Component {
     return (
       <ScreenWrapper>
         {this.renderContent()}
-        Correct: {this.state.numberCorrect}
       </ScreenWrapper>
     );
   }
