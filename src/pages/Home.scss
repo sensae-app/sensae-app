@@ -10,36 +10,122 @@ $grey-light: #FAFAFA; /* For Cards */
 $pad-md: 20px;
 
 .img-header {
-    width: 50px;
-    margin-right: 15px;
+  width: 50px;
+  margin-right: 15px;
 }
+
 // Override sty
 header {
-    background-color: white !important;
-    color: black !important;
+  background-color: white !important;
+  color: black !important;
 }
+
+p {
+  color: #9B9B9B;
+  font-family: Arial;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+h2 {
+  color: #4A4A4A;
+  font-family: Arial;
+  font-size: 26px;
+  letter-spacing: 1.08px;
+  line-height: 31px;
+  text-align: center;
+}
+
+h3 {
+  color: #6BC1F0;
+  font-family: Arial;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 21px;
+  text-align: center;
+}
+
 .vt-body {
-    font-family: Arial;
-    padding: $pad-md;
+  font-family: Arial;
+  padding: $pad-md;
+  max-width: 600px;
+  margin: auto;
+  margin-top: 60px;
 }
+
 .vt-header {
-    text-align: center;
-    padding: $pad-md;
+  text-align: center;
+  padding: $pad-md;
 }
-.vt-training {
-    color: $magenta;
+
+.list-header {
+  color: $magenta;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14;
 }
+
 .vt-card {
-    background-color: $grey-light;
-    width: 100%;
-    height: auto;
-    padding: $pad-md;
-    margin-bottom: $pad-md;
+  border-radius: 4px;
+  background-color: $grey-light;
+  width: 100%;
+  height: auto;
+  padding: $pad-md;
+  margin-bottom: $pad-md;
+  text-align: center;
+  img {
+    width: 60%;
+  }
+  h3 {
+    color: $blue;
+  }
+  h2 {
+    color: $blue;
+    font-family: Arial;
+    font-size: 26px;
+    letter-spacing: 1.08px;
+    line-height: 31px;
     text-align: center;
-    img {
-        width: 60%;
-    }
-    h3 {
-        color: $blue;
-    }
+    text-transform: uppercase;
+  }
+  p {
+    color: rgba(0, 0, 0, 0.4);
+    font-family: Arial;
+    font-size: 12px;
+    letter-spacing: 0.75px;
+    line-height: 17px;
+    text-align: center;
+  }
+}
+
+.vt-card-header {
+  border-radius: 4px;
+  background-color: $grey-light;
+  width: 100%;
+  height: auto;
+  padding: $pad-md;
+  margin-bottom: $pad-md;
+  text-align: center;
+  h2 {
+    color: $blue;
+    font-family: Arial;
+    font-size: 26px;
+    letter-spacing: 1.08px;
+    line-height: 31px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  p {
+    color: rgba(0, 0, 0, 0.4);
+    font-family: Arial;
+    font-size: 16px;
+    letter-spacing: 0.75px;
+    line-height: 17px;
+    text-align: center;
+  }
+}
+
+.vt-card:hover {
+  box-shadow: rgba(0,0,0,.2) 0 2px 6px;
 }

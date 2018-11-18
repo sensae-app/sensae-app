@@ -17,58 +17,56 @@ import MenuIcon from '@material-ui/icons/Menu';
 import './Home.scss';
 
 class Home extends React.Component {
-  
+
   render() {
     const { classes } = this.props; // Modified from component lib
     return (
       <ScreenHome>
         <div className={classes.root}>
-          <AppBar position="static">
+          <AppBar position="fixed">
             <Toolbar>
               <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
                 <MenuIcon />
               </IconButton>
-              <img src={logo} className="img-header"/>
+              <img src={logo} className="img-header" />
               <Typography variant="h6" color="inherit" className={classes.grow}>
-                News
+                Sensae
               </Typography>
               <Button color="inherit">Login</Button>
             </Toolbar>
           </AppBar>
         </div>
         {/* END HEADER */}
-        {/* <Typography noWrap variant={'h1'}>
-          Welcome to Grasshopper
-        </Typography> */}
+
         <div className="vt-body">
           <div className="vt-header">
-            <h2> Welcome Grasshopper</h2>
+            <h2> Welcome Grasshopper.</h2>
             <p>Enrich your experience of the world through synesthesia training.</p>
           </div>
-          <p className="vt-training">Training Games</p>
+          {/*LIST*/}
+          <p className="list-header">Training Games</p>
           <div className="vt-card">
-            <img src="https://i.imgur.com/fJ7TiW1.png"/>
+            <img src="https://i.imgur.com/fJ7TiW1.png" />
             <h3>Stroop Test</h3>
             <p>How synesthetic are you? This quiz determines your baseline synesthesia skills. </p>
           </div>
+          <Link to="/quiz">
+            <div className="vt-card">
+              <img src="https://i.imgur.com/BXotvRf.png" />
+              <h3>Accuity Training</h3>
+              <p>Determine whether or not you are synesthetic with this baseline quiz</p>
+            </div>
+          </Link>
           <div className="vt-card">
-            <img src="https://i.imgur.com/BXotvRf.png"/>
-            <h3>Accuity Training</h3>
-            <p>Determine whether or not you are synesthetic with this baseline quiz</p>
-          </div>
-          <div className="vt-card">
-            <img src="https://i.imgur.com/YRJ9smu.png"/>
+            <img src="https://i.imgur.com/YRJ9smu.png" />
             <h3>New N-Back</h3>
             <p>How synesthetic are you? This quiz determines your baseline synesthesia skills. </p>
           </div>
           <div className="vt-card">
-            <img src="https://i.imgur.com/YRJ9smu.png"/>
+            <img src="https://i.imgur.com/YRJ9smu.png" />
             <h3>Association</h3>
             <p>How synesthetic are you? This quiz determines your baseline synesthesia skills. </p>
           </div>
-          <Button variant="text" component={Link} to="/quiz">
-            Continue
-          </Button>
         </div>
       </ScreenHome>
     );

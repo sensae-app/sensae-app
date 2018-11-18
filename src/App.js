@@ -37,14 +37,7 @@ class App extends React.Component {
 }
 
 const styles = {
-  // container: {
-  //   display: 'flex',
-  //   flex: 1,
-  // },
-
-  // Set Global Style Width of 600px for Landscape / Portrait Mode
   container: {
-    maxWidth: "600px",
     width: "100%"
   }
 };
