@@ -26,7 +26,6 @@ class Quiz extends React.Component {
             <Typography variant="h6" color="inherit" className={classes.grow}>
               Sensae
             </Typography>
-            <Button color="inherit">Login</Button>
           </Toolbar>
         </AppBar>
         <div className="vt-body">

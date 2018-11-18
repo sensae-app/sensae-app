@@ -6,6 +6,7 @@ import { accuitySettings } from '../contstants/quizSettings';
 class LevelSelectBubble extends React.PureComponent {
   static propTypes = {
     level: PropTypes.number.isRequired,
+    completed: PropTypes.bool.isRequired,
     hideLine: PropTypes.bool,
   };
 
@@ -20,7 +21,7 @@ class LevelSelectBubble extends React.PureComponent {
 
   render() {
     return (
-      <div className="timeline timeline-on" onClick={this.handleClick}>
+      <div className={`timeline ${this.props.completed && 'timeline-on'}`} onClick={this.handleClick}>
         <div className="line" style={{ display: this.props.hideLine ? 'none' : 'block' }} />
         <div className="circle">
           <div className="level">{this.props.level}</div>

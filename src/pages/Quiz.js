@@ -10,8 +10,13 @@ import Toolbar from '@material-ui/core/es/Toolbar/Toolbar';
 import IconButton from '@material-ui/core/es/IconButton/IconButton';
 import logo from '../images/logo.png';
 import withStyles from '@material-ui/core/es/styles/withStyles';
+import { hydrateStateWithLocalStorage } from '../services/localStorage.service';
 
 class Quiz extends React.Component {
+
+  state = hydrateStateWithLocalStorage({
+    highestCompletedLevel: 0,
+  });
 
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -32,7 +37,6 @@ class Quiz extends React.Component {
             <Typography variant="h6" color="inherit" className={classes.grow}>
               Sensae
             </Typography>
-            <Button color="inherit">Login</Button>
           </Toolbar>
         </AppBar>
         <div className="vt-body">
@@ -48,10 +52,10 @@ class Quiz extends React.Component {
           <div style={{ margin: 24 }}>
             <p className="list-header">Your journey begins...</p>
           </div>
-          <LevelSelectBubble level={1} />
-          <LevelSelectBubble level={2} />
-          <LevelSelectBubble level={3} />
-          <LevelSelectBubble level={4} hideLine />
+          <LevelSelectBubble level={1} completed={this.state.highestCompletedLevel >= 1} />
+          <LevelSelectBubble level={2} completed={this.state.highestCompletedLevel >= 2} />
+          <LevelSelectBubble level={3} completed={this.state.highestCompletedLevel >= 3} />
+          <LevelSelectBubble level={4} completed={this.state.highestCompletedLevel >= 4} hideLine />
         </div>
       </ScreenHome>
     );

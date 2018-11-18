@@ -14,7 +14,7 @@ class SingleResult extends React.PureComponent {
   };
 
   componentDidMount() {
-    this.countdownTimer = setInterval(this.progress, 700);
+    this.countdownTimer = setInterval(this.progress, 400);
   }
 
   componentWillUnmount() {
