@@ -43,11 +43,39 @@ class Quiz extends React.Component {
             <p className="list-header">Your Journey</p>
           </div>
           <div className="timeline timeline-on">
+            <div className="line"></div>
             <div className="circle">
               <div className="level">1</div>
               <div className="label">level</div>
             </div>
+          </div>
+          <div className="timeline">
             <div className="line"></div>
+            <div className="circle">
+              <div className="level">2</div>
+              <div className="label">level</div>
+            </div>
+          </div>
+          <div className="timeline">
+            <div className="line"></div>
+            <div className="circle">
+              <div className="level">3</div>
+              <div className="label">level</div>
+            </div>
+          </div>
+          <div className="timeline">
+            <div className="line"></div>
+            <div className="circle">
+              <div className="level">4</div>
+              <div className="label">level</div>
+            </div>
+          </div>
+          <div className="timeline">
+            <div className="line"></div>
+            <div className="circle">
+              <div className="level">5</div>
+              <div className="label">level</div>
+            </div>
           </div>
         </div>
       </ScreenHome>
