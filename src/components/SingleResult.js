@@ -13,17 +13,15 @@ class SingleResult extends React.PureComponent {
 
   render() {
     return (
-      <div
-        style={{ ...styles.container, background: this.props.color }}
-        onClick={this.onClick}
-      >
-        {this.props.isCorrect ? <Check /> : <Close />}
-        <Typography variant="title">
-          {this.props.isCorrect ? 'Correct.' : 'Incorrect.'}
-        </Typography>
+      <div style={{ ...styles.container }}>
+        {this.props.isCorrect ? <Check style={styles.icon}/> : <Close style={styles.icon}/>}
+        <h3>
+          {this.props.isCorrect ? 'Correct!' : 'Incorrect.'}
+        </h3>
         <Button
           variant="contained"
           fullWidth
+          style={{width: '300px', backgroundColor: "#F96B6A", color:"#fff"}}
           onClick={this.props.onClick}
         >
           {this.props.isCorrect ? 'Next' : 'Try Again'}
@@ -36,9 +34,18 @@ class SingleResult extends React.PureComponent {
 const styles = {
   container: {
     width: 300,
-    height: 100,
-    margin: 16,
+    // backgroundColor: 'rgba(0,0,0,.03)',
+    borderRadius: 4,
+    margin: 0,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: 32,
   },
+  icon: {
+    color: '#6BC1F0',
+    fontSize: 240,
+  }
 };
 
 export default SingleResult;
