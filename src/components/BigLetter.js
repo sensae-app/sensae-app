@@ -12,7 +12,7 @@ class BigLetter extends React.PureComponent {
 
   render() {
     return (
-      <Typography noWrap variant="h1" style={{ color: this.props.association.color }}>
+      <Typography className="vt-bigletter" noWrap variant="h1" style={{ color: this.props.association.color }}>
         {this.props.association.letter}
       </Typography>
     );
