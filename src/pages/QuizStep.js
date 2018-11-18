@@ -85,7 +85,7 @@ class QuizStep extends React.Component {
   };
 
   proceed = () => {
-    if (this.state.step < 3) {
+    if (this.state.step < 11) {
       this.showLetter();
     } else {
       this.done();
