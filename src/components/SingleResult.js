@@ -13,7 +13,7 @@ class SingleResult extends React.PureComponent {
 
   render() {
     return (
-      <div style={{ ...styles.container }}>
+      <div className="vt-singleresult">
         {this.props.isCorrect ? <Check style={styles.icon}/> : <Close style={styles.icon}/>}
         <h3>
           {this.props.isCorrect ? 'Correct!' : 'Incorrect.'}

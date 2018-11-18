@@ -1,0 +1,35 @@
+/* Styles for QuizStep's Wrapper */
+.vt-quizwrapper {
+    background-color: grey;
+}
+.vt-quizwrapper-sub{
+    // empty
+}
+.vt-quizheader {
+    text-align: center;
+    position: relative;
+    h4 {
+        margin: 0;
+        padding: 15px;
+    }
+    p {
+        margin: 0;
+    }
+    .cross {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+    }
+}
+
+/* Styles for 2 colorchoice shapes */
+.vt-colorchoice {
+    border-radius: 50%;
+    width: 150px !important;
+    height: 150px !important;
+}
+/* Styles for bigletter component */
+.vt-bigletter {
+    transform: scale(1.5);
+    margin-bottom: 20px !important;
+}

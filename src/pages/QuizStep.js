@@ -9,6 +9,8 @@ import CloseIcon from '@material-ui/icons/Close';
 import SingleResult from '../components/SingleResult';
 import colorAssociations from '../contstants/associations';
 import steps from '../contstants/quizSteps';
+import './Home.scss'; // Global Styles
+import './QuizStep.scss';
 import ScreenHome from '../components/ScreenHome';
 import AppBar from '@material-ui/core/es/AppBar/AppBar';
 import Toolbar from '@material-ui/core/es/Toolbar/Toolbar';

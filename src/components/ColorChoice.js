@@ -13,7 +13,7 @@ class ColorChoice extends React.PureComponent {
 
   render() {
     return (
-      <div
+      <div className="vt-colorchoice"
         style={{ ...styles.container, background: this.props.color }}
         onClick={this.handleClick}
       />

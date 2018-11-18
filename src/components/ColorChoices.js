@@ -22,7 +22,7 @@ class ColorChoices extends React.PureComponent {
     const upperColor = isUpperCorrect ? this.props.association.color : wrongColor;
     const lowerColor = isUpperCorrect ? wrongColor : this.props.association.color;
     return (
-      <div style={{ flexDirection: 'column' }}>
+      <div className="vt-colorchoices" style={{ flexDirection: 'column' }}>
         <ColorChoice
           color={upperColor}
           onClick={this.handleClick}
