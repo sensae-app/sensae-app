@@ -42,7 +42,7 @@ class Quiz extends React.Component {
           <div style={{margin: 16}}>
             <p className="list-header">Your Journey</p>
           </div>
-          <div className="timeline-on">
+          <div className="timeline timeline-on">
             <div className="circle">
               <div className="level">1</div>
               <div className="label">level</div>
