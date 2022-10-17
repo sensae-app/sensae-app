@@ -113,7 +113,6 @@ class QuizStep extends React.Component {
             <p style={{ marginBottom: 100, textAlign: 'center' }}>Remember this color/letter association.</p>
             <BigLetter association={association} />
           </div>
-
         );
       }
       case views.CHOICE: {
@@ -164,8 +163,6 @@ class QuizStep extends React.Component {
       default:
         return null;
     }
-
-    return null;
   };
 
   render() {
